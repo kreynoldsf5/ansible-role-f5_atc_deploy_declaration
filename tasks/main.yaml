@@ -74,6 +74,12 @@
     - atc_service == "AS3"
     - atc_method in ['POST', 'GET', 'DELETE']
 
+- name: include FAST_helper.yaml
+  include_tasks: as3_filtering.yaml
+  when:
+    - atc_service == "FAST"
+    - atc_method in ['DELETE']
+
 - name: check as3 declaration and include teem data if needed
   teem_check:
     atc_json_data: "{{ atc_declaration }}"

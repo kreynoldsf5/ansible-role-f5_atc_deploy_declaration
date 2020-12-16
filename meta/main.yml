@@ -3,8 +3,8 @@
 dependencies: []
 galaxy_info:
   role_name: atc_deploy
-  author: crosbygw
-  description: Allows declaration to be sent to automation tool chain service (AS3, DO, or TS)
+  author: crosbygw 
+  description: Allows declaration to be sent to automation tool chain service (AS3, DO, TS, CFE, or FAST)
   company: F5 Networks
   license: Apache
   min_ansible_version: 2.8
@@ -18,5 +18,7 @@ galaxy_info:
     - as3
     - do
     - ts
+    - cfe
+    - fast
     - bigip
     - bigiq

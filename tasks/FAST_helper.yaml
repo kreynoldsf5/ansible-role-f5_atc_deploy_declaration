@@ -1,0 +1,9 @@
+---
+
+- name: Setup FAST endpoint when DELETE #Now do deleting a tenant
+  set_fact:
+    atc_url: "{{ atc_url }}/{{ atc_tenant }}/{{ atc_application }}"
+  when:
+    - atc_tenant is defined
+    - atc_application is defined
+    - atc_method in ['DELETE'] 
