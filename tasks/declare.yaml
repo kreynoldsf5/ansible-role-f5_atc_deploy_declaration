@@ -71,10 +71,10 @@
     validate_certs: "{{ provider.validate_certs }}"
     body_format: json
     body: "{{ atc_declaration | default(omit) }}"
-    status_code: 204, 202, 200
+    status_code: 202
   register: atc_FAST_status
-  failed_when:
-    - atc_FAST_status.json.message != 'success'
+  #failed_when:
+  #  - atc_FAST_status.json.message != 'success'
   when:
     - atc_method == 'POST'
     - atc_service == "FAST"
@@ -91,8 +91,8 @@
     body_format: json
     status_code: 204, 202, 200
   register: atc_FAST_status
-  failed_when:
-    - atc_FAST_status.json.message != 'success'
+  #failed_when:
+  #  - atc_FAST_status.json.message != 'success'
   when:
     - atc_method == 'DELETE'
     - atc_service == "FAST"
