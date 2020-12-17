@@ -1,6 +1,6 @@
 ---
 
-- name: Setup provider and varables
+- name: Setup provider and variables
   set_fact:
     provider: "{{ provider }}"
     atc_declaration: "{{ atc_declaration|default(omit) }}"
@@ -111,11 +111,11 @@
   include_tasks: atc_task_check_bigip.yaml
   when:
     - check_bigiq.status == 404 ## if /info/system does not exist, it is a BIG-IP
-    - atc_service == "AS3" or atc_service == "Device"
+    - atc_service == "AS3" or atc_service == "Device" or atc_service == "FAST"
 
 # BIG-IQ task check
 - name: include atc_task_check_bigiq.yaml
   include_tasks: atc_task_check_bigiq.yaml
   when:
     - check_bigiq.status == 200 ## if /info/system exists, it is a BIG-IQ
-    - atc_service == "AS3" or atc_service == "Device"
+    - atc_service == "AS3" or atc_service == "Device" or atc_service == "FAST"

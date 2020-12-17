@@ -71,7 +71,7 @@
     validate_certs: "{{ provider.validate_certs }}"
     body_format: json
     body: "{{ atc_declaration | default(omit) }}"
-    status_code: 202
+    status_code: 204, 202, 200
   register: atc_FAST_status
   #failed_when:
   #  - atc_FAST_status.json.message != 'success'
