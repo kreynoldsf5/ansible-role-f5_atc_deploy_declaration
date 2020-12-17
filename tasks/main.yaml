@@ -85,7 +85,9 @@
     atc_json_data: "{{ atc_declaration }}"
     atc_version: "{{ atc_response.json }}"
   register: result
-  when: check_teem and atc_declaration is defined
+  when: 
+    - check_teem and atc_declaration is defined
+    - atc_service != "FAST"
 
 - name: Update the atc_declaration
   set_fact:
