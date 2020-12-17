@@ -70,7 +70,7 @@
     return_content: true
     validate_certs: "{{ provider.validate_certs }}"
     body_format: json
-    body: "{{ atc_declaration_updated | default(omit) }}"
+    body: "{{ atc_declaration | default(omit) }}"
     status_code: 204, 202, 200
   register: atc_FAST_status
   failed_when:
